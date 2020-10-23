@@ -4,6 +4,8 @@ Jose Ramirez and Yasir Karim
 
 Sources: [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
 
+Original: X-ray scans from Guangzhou Women and Children’s Medical Center, Guangzhou.
+
 ## Social Case
 
 Pneumonia is a common, but serious lung infection that disproportionately affects the young, the elderly, and
@@ -13,20 +15,22 @@ Stunningly, the USA has shown negligible improvements in decreasing the death ra
 
 ## Repository Structure
 
-pngs - folder that contains visualizations that were utilized in our analysis
+[pngs](https://github.com/Sonora27/pneumonia_image_classification/tree/master/PNG) - folder that contains visualizations that were utilized in our analysis
 
-CNN_modeling_v1.ipynb - jupyter notebook that contains EDA and initial models
+[CNN_modeling_v1.ipynb](https://github.com/Sonora27/pneumonia_image_classification/blob/master/CNN_modelling_v1.ipynb) - jupyter notebook that contains EDA and initial models
 
-AdamW_modeling.ipynb - jupyter notebook that contains AdamW models as well as post model analysis
+[AdamW_modeling.ipynb](https://github.com/Sonora27/pneumonia_image_classification/blob/master/AdamW_modeling.ipynb) - jupyter notebook that contains AdamW models as well as post model analysis
 
-presentation.pdf - contains pdf version of project presentation
+[presentation.pdf](https://github.com/Sonora27/pneumonia_image_classification/blob/master/Presentation.pdf) - contains pdf version of project presentation
 
 README.md
 
 
 ## Data
 
-To construct our pneumonia detection system, we utilized a dataset from Kaggle that contained 5,856 images. There was a significant class imbalance that we had to deal with as we had 3 times as many images that showed pneumonia in comparison to the healthy images:
+To construct our pneumonia detection system, we utilized a dataset from Kaggle that contained 5,856 images. The original Chest X-ray images were selected from pediatric patients of 1-5 years old from Guangzhou Women and Children’s Medical Center, Guangzhou. All chest X-ray imaging was performed as part of patients’ routine clinical care.
+
+There was a significant class imbalance that we had to deal with as we had 3 times as many images that showed pneumonia in comparison to the healthy images:
 
 <img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/pneumonia_imbalance.png">
 
@@ -48,11 +52,11 @@ To address our class imbalance, we used both data augmentation as well as class_
 
 ### Stochastic Gradient Descent
 
-This prelimnary model achieved a promising recall of 93.33%, but accuracy lagged behind at 82.05%. In addition, the model vastly overfitted to the data.
+This prelimnary model achieved a promising recall of 93.33%, but accuracy lagged behind at 82.05%. This model had only one layer of convolution and max pooling without any data augmentation. In addition, the model vastly overfitted to the training data.
 
 ### Adam
 
-Using the Adam optimizier, we were able to rectify our overfitting issues somewhat and achieve an excellent recall of 98.72%, but our accuracy suffered at 79.33%.
+Using the Adam optimizier, we were able to achieve an excellent recall of 98.72% and an accuracy score of 93.33%. We added multiple layers of convolution and max pooling alongside dropout layers. However, this model still did not fix the issue of overfitting the training data compared to the validation data.
 
 ### AdamW
 
