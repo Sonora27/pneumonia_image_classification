@@ -13,6 +13,16 @@ Stunningly, the USA has shown negligible improvements in decreasing the death ra
 
 ## Repository Structure
 
+pngs - folder that contains visualizations that were utilized in our analysis
+
+CNN_modeling_v1.ipynb - jupyter notebook that contains EDA and initial models
+
+AdamW_modeling.ipynb - jupyter notebook that contains AdamW models as well as post model analysis
+
+presentation.pdf - contains pdf version of project presentation
+
+README.md
+
 
 ## Data
 
@@ -34,13 +44,19 @@ In addition, we included accuracy as a second evaluation metric. Since our class
 
 ## Modeling
 
-### SGD
+To address our class imbalance, we used both data augmentation as well as class_weights.
+
+### Stochastic Gradient Descent
+
+This prelimnary model achieved a promising recall of 93.33%, but accuracy lagged behind at 82.05%. In addition, the model vastly overfitted to the data.
 
 ### Adam
 
+Using the Adam optimizier, we were able to rectify our overfitting issues somewhat and achieve an excellent recall of 98.72%, but our accuracy suffered at 79.33%.
+
 ### AdamW
 
-Our strongest overall model ended up being an AdamW model. The AdamW optimizer performs so well because it performs weight decay after controlling the parameter-wise step size. This model gave us an excellent recall score of 93.85% and an excellent accuracy score of 91.51%. It was able to accomplish this while minimizing overfitting better than our previous models. 
+Our strongest overall model ended up being an AdamW model. The AdamW optimizer performs so well because it performs weight decay after controlling the parameter-wise step size. This model gave us an excellent recall score of 93.85% and an excellent accuracy score of 91.51%. It was able to accomplish this while minimizing overfitting better than our previous models. Overfitting ended up being best handled in this models by simplfying our previous layers.
 
 ### Results
 
@@ -50,7 +66,15 @@ Our strongest overall model ended up being an AdamW model. The AdamW optimizer p
 
 As you can see from the above visualizations, this model was able to combine excellent recall and accuracy while controlling for overfitting better than any other model.
 
-False Prediction Analysis
-<img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/false_negative.png">
+## False Prediction Analysis
+<img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/false_negatives.png">
 <img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/false_positives.png">
+
+When we analyzed where our model mispredicted, we found there to be an issue with the images themselves moreso than the actual model being faulty. To the naked eye, the false negative images look to be in fact negative even though they are truly positive. There is very little opacity present in these photos. The fact that the images seem to be rather dark seems to be playing a large role in the misclassification.
+
+Similarly with the false positives, the images look to be in fact positive. There appears to be a high amount of opacity present in these photos and yet, they are in fact negative.  The high amount of brightness of the photos seems to be contributing to the misclassification as well.
+
+## Next Steps
+
+Although our model shows very promising results in its ability to detect pneumonia, it might not be the surest method in detecting pneumonia in its early stages. Upon consultation with industry professionals, we have leaned that radiological evidence of pneumonia often lags behind clinical synptoms of pneumonia. Building a similar pneumonia detection system using CT scans might further help us in our goal of detecting pneumonia as early as possible because a CT scan of the chest is significantly more sensitive for detecting pneumonia in its early stages.
 
