@@ -47,3 +47,10 @@ Our strongest overall model ended up being an AdamW model. The AdamW optimizer p
 <img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/confusion_matrix.png">
 
 <img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/adamw.png">
+
+As you can see from the above visualizations, this model was able to combine excellent recall and accuracy while controlling for overfitting better than any other model.
+
+False Prediction Analysis
+<img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/false_negative.png">
+<img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/false_positives.png">
+
