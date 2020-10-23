@@ -41,3 +41,9 @@ In addition, we included accuracy as a second evaluation metric. Since our class
 ### AdamW
 
 Our strongest overall model ended up being an AdamW model. The AdamW optimizer performs so well because it performs weight decay after controlling the parameter-wise step size. This model gave us an excellent recall score of 93.85% and an excellent accuracy score of 91.51%. It was able to accomplish this while minimizing overfitting better than our previous models. 
+
+### Results
+
+<img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/confusion_matrix.png">
+
+<img src="https://raw.githubusercontent.com/Sonora27/pneumonia_image_classification/master/PNG/adamw.png">
