@@ -1,13 +1,12 @@
 # Detecting Pneumonia from X-Ray Images Using Convolutional Neural Network
 
-Jose Ramirez and Yasir Karim
+Joe Ramirez and Yasir Karim
 
 Sources: [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
 
 ## Social Case
 
-Pneumonia is a common, but serious lung infection that disproportionately affects the young, the elderly, and
-the immunocompromised. It is the leading cause of death among children under the age of 5. For the elderly, they have a significantly higher chance of being diagnosed with the disease and of dying from it as well. Although pneumonia vaccines exist for high-risk individuals, they are only available for some but not all causes of the disease.
+Pneumonia is a common, but serious, lung infection that disproportionately affects the young, elderly, immunocompromised. It is the leading cause of death among children under the age of 5. For the elderly, they have a significantly higher chance of being diagnosed with the disease and of dying from it as well. Although pneumonia vaccines exist for high-risk individuals, they are only available for some, but not all, causes of the disease.
 
 Stunningly, the USA has shown negligible improvements in decreasing the death rate from pneumonia over the last half century even as antibiotics have become much more prevalent. To tackle this daunting illness, a system must be devised that can detect pneumonia in its early stages, so that it can be properly treated before it becomes more serious and harder to treat. We have been tasked to create such a system by using deep learning to detect pneumonia from X-Ray images.
 
@@ -44,7 +43,7 @@ In addition, we included accuracy as a second evaluation metric. Since our class
 
 ## Modeling
 
-To address our class imbalance, we used both data augmentation as well as class_weights.
+To address our class imbalance, we used both data augmentation as well as class_weights = balanced.
 
 ### Stochastic Gradient Descent
 
@@ -52,7 +51,7 @@ This prelimnary model achieved a promising recall of 93.33%, but accuracy lagged
 
 ### Adam
 
-Using the Adam optimizier, we were able to rectify our overfitting issues somewhat and achieve an excellent recall of 98.72%, but our accuracy suffered at 79.33%.
+Using the Adam optimizer, we were able to rectify our overfitting issues somewhat and achieve an excellent recall of 98.72%, but our accuracy suffered at 79.33%.
 
 ### AdamW
 
@@ -73,6 +72,8 @@ As you can see from the above visualizations, this model was able to combine exc
 When we analyzed where our model mispredicted, we found there to be an issue with the images themselves moreso than the actual model being faulty. To the naked eye, the false negative images look to be in fact negative even though they are truly positive. There is very little opacity present in these photos. The fact that the images seem to be rather dark seems to be playing a large role in the misclassification.
 
 Similarly with the false positives, the images look to be in fact positive. There appears to be a high amount of opacity present in these photos and yet, they are in fact negative.  The high amount of brightness of the photos seems to be contributing to the misclassification as well.
+
+Generally speaking, the model appears to have a bias towards identifying darker images as negatives and brighter images as positives, but still performs quite strongly overall.
 
 ## Next Steps
 
