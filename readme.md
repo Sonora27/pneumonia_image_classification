@@ -55,11 +55,10 @@ This prelimnary model achieved a promising recall of 93.33%, but accuracy lagged
 
 ### Adam
 
-<<<<<<< HEAD
-Using the Adam optimizer, we were able to rectify our overfitting issues somewhat and achieve an excellent recall of 98.72%, but our accuracy suffered at 79.33%.
-=======
-Using the Adam optimizier, we were able to achieve an excellent recall of 98.72% and an accuracy score of 93.33%. We added multiple layers of convolution and max pooling alongside dropout layers. However, this model still did not fix the issue of overfitting the training data compared to the validation data.
->>>>>>> 77f3604d0354cf0ca521b9db2ed4b82e793a2424
+
+With our first model using the Adam optimizer, we were able to rectify our overfitting issues somewhat and achieve an excellent recall of 98.72%, but our accuracy suffered at 79.33%.
+
+Using the Adam optimizier in a second model, we were able to achieve an excellent recall of 98.72% and an accuracy score of 93.33%. We added multiple layers of convolution and max pooling alongside dropout layers. However, this model still did not fix the issue of overfitting the training data compared to the validation data.
 
 ### AdamW
 
